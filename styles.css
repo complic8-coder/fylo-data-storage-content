@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap");
+
+:root {
+  --gradient: linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+  --very-dark-blue: hsl(229, 57%, 11%);
+
+  --white: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  margin: auto;
+  color: var(--pale-blue);
+  background: url(./images/bg-desktop.png) no-repeat fixed bottom,
+    var(--very-dark-blue);
+  background-size: 100vw;
+  display: flex;
+  justify-content: center;
+  font-family: "Raleway", sans-serif;
+}
+
+.content {
+  max-width: 920px;
+  width: 100%;
+  margin: 12.8rem 2rem;
+  display: flex;
+  gap: 30px;
+}
+
+.functions {
+  max-width: 350px;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 0.5rem 6rem 0.5rem 0.5rem;
+  background: var(--dark-blue);
+}
+
+.fylo-logo {
+  margin-bottom: 1.7rem;
+}
+
+.functions__buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--very-dark-blue);
+  outline: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+}
+
+.storage {
+  max-width: 540px;
+  width: 100%;
+  height: 154px;
+  margin-top: 3rem;
+  padding: 2.45rem;
+  position: relative;
+  border-radius: 0.5rem;
+  background: var(--dark-blue);
+}
+
+.storage__desc {
+  font-size: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.storage__remaining {
+  padding: 0.8rem 1.55rem;
+  position: absolute;
+  bottom: 8rem;
+  right: 2.5rem;
+  z-index: 1;
+  color: var(--very-dark-blue);
+  border-radius: 0.8rem;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-transform: uppercase;
+}
+
+.storage__remaining::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 3rem;
+  width: 22px;
+  height: 22px;
+  border-right: 1.5rem solid var(--white);
+  border-bottom: 1.5rem solid transparent;
+}
+
+.storage__remaining .remaining {
+  font-size: 2.5rem;
+}
+
+.storage__remaining p {
+  margin-top: 0.2rem;
+  color: var(--grayish-blue);
+  font-size: 0.8rem;
+  letter-spacing: 0.6px;
+}
+
+.storage__bar {
+  width: 100%;
+  height: 1.3rem;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  background: var(--very-dark-blue);
+  display: flex;
+  align-items: center;
+}
+
+.bar {
+  width: 81.5%;
+  height: 14px;
+  margin-left: 0.2rem;
+  position: relative;
+  border-radius: 14px;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  animation: 1.2s ease-in-out 0s 1 growBar;
+}
+
+.bar::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 3px;
+  border-radius: 50%;
+  background: var(--pale-blue);
+}
+
+@keyframes growBar {
+  0% {
+    width: 10px;
+  }
+
+  100% {
+    width: 81.5%;
+  }
+}
+
+.storage__amounts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.storage__amounts span {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  body {
+    background: url(./images/bg-mobile.png) no-repeat fixed bottom,
+      var(--very-dark-blue);
+    background-size: 100vw;
+  }
+}
+
+@media (max-width: 790px) {
+  .content {
+    margin: 7.9rem 1.6rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .functions,
+  .storage {
+    margin: auto;
+  }
+
+  .storage__remaining {
+    padding: 0.8rem 1.55rem;
+    position: absolute;
+    bottom: -2.2rem;
+    right: 4.4rem;
+  }
+  
+  .storage__remaining::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 0;
+  }
+
+  .storage {
+    max-width: 540px;
+    height: 160px;
+    width: 100%;
+    padding: 1.9rem 2rem;
+  }
+  
+  .storage__desc {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .storage__remaining .remaining {
+    font-size: 2.5rem;
+  }
+  
+  .storage__remaining p {
+    margin-top: 0.2rem;
+    color: var(--grayish-blue);
+    font-size: 0.8rem;
+    letter-spacing: 0.6px;
+  }
+
+  .storage__bar {
+    margin-bottom: 0.6rem;
+  }
+
+  .storage__amounts span {
+    font-size: 0.75rem;
+  }
+}
