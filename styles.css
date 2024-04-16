@@ -178,15 +178,13 @@ body {
   font-size: 0.8rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 790px) {
   body {
     background: url(./images/bg-mobile.png) no-repeat fixed bottom,
       var(--very-dark-blue);
     background-size: 100vw;
   }
-}
-
-@media (max-width: 790px) {
+  
   .content {
     margin: 7.9rem 1.6rem;
     flex-direction: column;
